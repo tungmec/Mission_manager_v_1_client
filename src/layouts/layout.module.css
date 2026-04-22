@@ -1,0 +1,41 @@
+
+.rootlayout {
+    width: 100%;
+}
+.rootmain {
+    width: 100%;
+}
+.authlayout {
+    width: inherit;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+   color: gold;
+}
+.authmain {
+    width: 100%;
+}
+
+.managerlayout {
+    width: inherit;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+   color: gold;
+}
+
+.managermain {
+    width: 100%;
+}
+
+.sublayout {
+    width: inherit;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    color: gold;
+}
+
+.submain {
+    width: 100%;
+}
