@@ -8,9 +8,9 @@ export const HomeRedirect = () => {
     
     
 
-    const isAutheticated = useSelector((state) => state.auth.isAuthenticated);
+    const isAutheticated = useSelector((state) => state.auth.isAuthenticated??false);
     const userType = useSelector((state) => state.auth.current_user?.user_type??null);
-    const accessToken = useSelector((state) => state.auth.accessToken);
+    const accessToken = useSelector((state) => state.auth.accessToken??null);
     const authIsLoading = useSelector((state) => state.auth.isloading);
     const isReloadAuth = useSelector((state) => state.auth.isGettingMe);
 

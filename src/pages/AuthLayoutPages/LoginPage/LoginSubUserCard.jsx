@@ -1,8 +1,36 @@
 import styles from './LoginPage.module.css';
-import { useState } from 'react';
+import { isValidElement, useState } from 'react';
+import {useDispatch} from 'react-redux';
+import {useNavigate} from 'react-router-dom';
+import {loginSubUser} from '../../../features/auth/authSlice.js';
+
+
 export const LoginSubUserCard = ({cardClass, clickHandler}) => {
     const [loginName, setLoginName] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
+    const [msg, setMsg] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const loginHandler = async () => {
+            setIsLoading(true);
+            try {
+                 dispatch(loginSubUser(
+                    {
+                        userName:loginName, 
+                        password:loginPassword
+                    }
+                ));
+                   } catch (err) {
+            setMsg("Fail to login");
+        } finally {
+            setIsLoading(false);
+            navigate("/", {replace:true})
+        }
+
+    }
  
     
 // Render part:
@@ -40,11 +68,13 @@ export const LoginSubUserCard = ({cardClass, clickHandler}) => {
                 
                                 
             <button
-                // onClick={}
+                onClick={loginHandler}
                 className={styles.button}
             >
                     Login
             </button> 
+
+            <p>{msg}</p>
        </div>
         
     )

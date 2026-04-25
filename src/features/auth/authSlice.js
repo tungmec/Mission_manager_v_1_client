@@ -1,6 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {loginAsManagerUser} from './managerUser/managerUserAPI.js';
-import {loadAccessToken, saveAccessToken, clearAccessToken} from '../../utils/localStorage.js';
+import {loadAccessToken, saveAccessToken, clearAccessToken} from '../../utils/sessionStorage.js';
+import {loginAsSubUser} from '../auth/subUser/subUserAPI.js';
 import {API_BASE_URL} from '../../utils/constant.js';
 
 
@@ -10,9 +11,9 @@ export const loginManagerUser = createAsyncThunk(
     async (arg, thunkAPI) => {
         try {
             const data = await loginAsManagerUser(arg);
-            console.log(JSON.stringify(data));
+            
             saveAccessToken(data.token);
-            console.log(loadAccessToken());
+            
             return data;
 
   
@@ -21,6 +22,21 @@ export const loginManagerUser = createAsyncThunk(
     }
 }
 );
+// Login thunk for sub user:
+export const loginSubUser = createAsyncThunk(
+    "auth/sublogin",
+    async (arg, thunkAPI) => {
+        try {
+
+            const data = await loginAsSubUser(arg);
+            console.log(JSON.stringify(data));
+            saveAccessToken(data.token);
+            return data;
+        } catch (err) {
+            return thunkAPI.rejectWithValue(err);
+        }
+    }
+)
 // get Me thunk for all type of user:
 export const getMeThunk = createAsyncThunk(
     "auth/getMe",
@@ -97,6 +113,27 @@ const authSlice = createSlice({
             })
 
             .addCase(loginManagerUser.rejected, (state, action) => {
+                state.accessToken = null;
+                state.current_user = null;
+                state.isloading = false;
+                state.isGettingMe = false;
+                state.isAuthenticated = false;
+                state.error = action.payload;
+            })
+            .addCase(loginSubUser.pending, (state) => {
+                state.isloading = true;             
+                state.error = null;
+                state.isGettingMe = false;
+            })
+            .addCase(loginSubUser.fulfilled, (state, action) => {
+                state.accessToken = loadAccessToken();
+                state.current_user = action.payload.data;
+                state.isloading = false;
+                state.isGettingMe = false;
+                state.isAuthenticated = true;
+                state.error = null;
+            })
+            .addCase(loginSubUser.rejected, (state, action) => {
                 state.accessToken = null;
                 state.current_user = null;
                 state.isloading = false;

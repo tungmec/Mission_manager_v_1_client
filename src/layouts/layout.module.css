@@ -24,9 +24,23 @@
    color: gold;
 }
 
+
+.managerheader {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.managerheader > * {
+    margin-right: 2rem;
+    color: gold;
+}
+
+
 .managermain {
     width: 100%;
 }
+
+
 
 .sublayout {
     width: inherit;
@@ -38,4 +52,8 @@
 
 .submain {
     width: 100%;
+}
+
+.logout_button {
+    color: black;
 }
