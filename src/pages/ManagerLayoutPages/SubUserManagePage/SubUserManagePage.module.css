@@ -1,0 +1,131 @@
+.subUsersManagePage {
+    width: 100%;
+    border: 3px solid green;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.subUsersShow {
+    width: 60%;
+    border-right: 2px solid green;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.list_container {
+    width: 100%;
+    padding: 0.5rem;
+    height: 20rem;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+.subUsersList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    width: 90%;
+    padding: 0.5rem;
+     
+}
+
+.profileShow {
+    width: 40%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+ 
+}
+.card_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.3rem;
+   
+}
+
+.subUserCard {
+    border: 1px solid brown;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin: 0.5rem;
+    width: 40%;
+    transition-property: width, border-radius, background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+  
+  
+}
+
+.subUserCard > * {
+    margin: 0.1rem 0.1rem;
+}
+
+.subUserCard:hover {
+ 
+   
+    background-color: rgba(216, 112, 147, 0.514);
+    
+   
+}
+
+.createPart{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.subCreate{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.roleCreate {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.createSubUserForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.createinput {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+}
+.label {
+    font-size: large;
+    margin-right: 1rem;
+}
+
+
+
+.role_select{
+    font-size: large;
+   
+}
+.role_select_option {
+    font-size:large;
+}
+
+.createRoleForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

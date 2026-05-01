@@ -1,0 +1,41 @@
+.message {
+    color: rgb(54, 8, 8);
+    width: 100%;
+    border-bottom: 1px solid gray;
+    
+    
+}
+
+
+.center_position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left_position {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+
+.chat_container {
+    max-width: 60%;
+    
+   
+}
+
+
+.msg_show {
+    width:100%;
+    border: 1px solid goldenrod;
+    padding: 0rem 0.5rem;
+     overflow: scroll;
+    scrollbar-width: none;
+}
+
+
+.msg_show >* {
+    font-size: larger;
+
+}

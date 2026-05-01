@@ -29,7 +29,7 @@ export const loginSubUser = createAsyncThunk(
         try {
 
             const data = await loginAsSubUser(arg);
-            console.log(JSON.stringify(data));
+            
             saveAccessToken(data.token);
             return data;
         } catch (err) {

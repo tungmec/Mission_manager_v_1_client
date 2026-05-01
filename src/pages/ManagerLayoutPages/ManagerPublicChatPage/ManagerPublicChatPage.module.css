@@ -14,7 +14,9 @@
     height: 20rem;
     border: 1px solid green;
     overflow: scroll;
-    background-color: rgb(153, 153, 196);
+    scrollbar-width: none;
+    
+    background-color: rgb(199, 214, 142);
 }
 .message_input {
     width: 60%;

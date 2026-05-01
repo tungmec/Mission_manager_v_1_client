@@ -17,7 +17,7 @@ export const ManagerUserLayout = () => {
         return <Navigate to="/" replace />
     }
 
-    console.log(isAuthticated, accessToken, userType);
+    
 
     return (
         <div className={styles.managerlayout}>
